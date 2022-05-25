@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+<!-- gadget1 -->
+<script src="../gadget1/js/echarts.min.js"></script>
+<script src="../gadget1/js/jquery.min.js"></script>	
+<link rel="stylesheet" href="../gadget1/css/world01.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
+</head>
+<body>
+      <div id="hname" style="background-color:#666FFF;">
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
+          <button type="button" class="btn btn-success">Middle</button>
+          <button type="button" class="btn btn-warning">Right</button>
+          <button type="button" class="btn btn-success">（成功）Success</button>
+        </div>
+        
+      </div>
+      
+      <div  style="background-color:#FFFFFF;height:700px;float:left;">    
+        <!-- gadget1 -->
+        <div id="left2" ></div>
+        <script src="../gadget1/js/world01.js"></script>
+      </div>
+      <div id="bool" style="background-color:#F0F8FF;clear:both;text-align:center;">
+        数据可视化小组作业：郑嘉骏、李晓、黄喆誉
+      </div>
+</body>
+<script type="text/javascript">
+let divobj=document.getElementById("btn1");
+divobj.onclick=function()
+{
+  window.location.href ="https://data-visualization.roundedorange.top/1";
+}
+</script>
+</html>
