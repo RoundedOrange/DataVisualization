@@ -1,6 +1,4 @@
 function getData(){
-    
-
 	$.ajax({  //全球各国数据获取，存入data传入函数
 		type:'post',
 		url:'https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist',
