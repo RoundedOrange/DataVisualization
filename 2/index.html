@@ -12,6 +12,7 @@
 <body>
   <!--导航条-->
   <div id="hname" style="background-color:#666FFF;">
+    <div id="title"><span class="time"></span></div>
     <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
       <button type="button" class="btn btn-success" id="btn2">疫苗接种信息</button>
@@ -147,5 +148,22 @@
   {
     window.location.href="https://roundedorange.top/DataVisualization/3/";
   }
+</script>
+<script type="text/javascript">
+  function showTime(){
+ var time = new Date();
+ var year = time.getFullYear();
+ var month = (time.getMonth()+1+'').padStart(2,'0');
+ var day = (time.getDate()+'').padStart(2,'0');
+ var hour = (time.getHours()+'').padStart(2,'0');
+ var minute = (time.getMinutes()+'').padStart(2,'0');
+ var second = (time.getSeconds()+'').padStart(2,'0');
+ 
+ var content = `${year}年${month}月${day}日${hour}:${minute}:${second}`;
+ $('#title .time').text(content);
+}
+
+showTime();
+setInterval(showTime,1000);      //每秒运行一次
 </script>
 </html>
