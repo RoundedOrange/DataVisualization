@@ -2,17 +2,24 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>3</title>
-<!-- gadget1 -->
-<script src="../gadget1/js/echarts.min.js"></script>
-<script src="../gadget1/js/jquery.min.js"></script>	
-<link rel="stylesheet" href="../gadget1/css/world01.css">
+<title>Demo</title>
+<!-- gadget4 -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+<script src="../gadget2/js/jquery.min.js"></script>
 <link rel="stylesheet" href="../css/time.css">
+<style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+    margin-right: 5px;
+    }
+</style>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
 </head>
 <body>
-  <!--导航条-->
+    <!--导航条-->
   <div id="hname" style="background-color:#666FFF;">
     <div id="title"><span class="time"></span></div>
     <div class="btn-group" role="group" aria-label="...">
@@ -23,9 +30,9 @@
     </div>
   </div>
       <div  style="background-color:#FFFFFF;height:700px;float:left;">    
-        <!-- gadget1 -->
-        <div id="left2" ></div>
-        <script src="../gadget1/js/world01.js"></script>
+        <!-- gadget3 -->
+        <div id="vis"></div>
+        <script src="../gadget3/js/data.js"></script>
       </div>
       <div id="bool" style="background-color:#F0F8FF;clear:both;text-align:center;">
         数据可视化小组作业：郑嘉骏、李晓、黄喆誉
@@ -54,17 +61,17 @@
   }
 </script>
 <script type="text/javascript">
-   function showTime(){
-	var time = new Date();
-	var year = time.getFullYear();
-	var month = (time.getMonth()+1+'').padStart(2,'0');
-	var day = (time.getDate()+'').padStart(2,'0');
-	var hour = (time.getHours()+'').padStart(2,'0');
-	var minute = (time.getMinutes()+'').padStart(2,'0');
-	var second = (time.getSeconds()+'').padStart(2,'0');
-	
-	var content = `${year}年${month}月${day}日${hour}:${minute}:${second}`;
-	$('#title .time').text(content);
+  function showTime(){
+ var time = new Date();
+ var year = time.getFullYear();
+ var month = (time.getMonth()+1+'').padStart(2,'0');
+ var day = (time.getDate()+'').padStart(2,'0');
+ var hour = (time.getHours()+'').padStart(2,'0');
+ var minute = (time.getMinutes()+'').padStart(2,'0');
+ var second = (time.getSeconds()+'').padStart(2,'0');
+ 
+ var content = `${year}年${month}月${day}日${hour}:${minute}:${second}`;
+ $('#title .time').text(content);
 }
 
 showTime();
