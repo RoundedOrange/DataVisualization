@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+<!-- gadget2 -->
+<script src="../gadget2/js/echarts.min.js"></script>
+<script src="../gadget2/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
+</head>
+<body>
+  <!--导航条-->
+  <div id="hname" style="background-color:#666FFF;">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
+      <button type="button" class="btn btn-success" id="btn2">Middle</button>
+      <button type="button" class="btn btn-warning">Right</button>
+      <button type="button" class="btn btn-success">（成功）Success</button>
+    </div>
+  </div>
+  <div  style="background-color:#FFFFFF;height:700px;float:left;">    
+  <!-- gadget2 -->
+  <div class="center col-lg-12" style="width: 1300px;height:500px;position:relative;">
+    <div style="left: 0"><span style="color: black;font-weight: bolder;font-size: 30px;">疫苗接种信息</span></div>
+
+    <div style="width: 500px;height: 350px;top:10px;float: left" id="vaccinationsMain01" ></div>
+
+    <div style="width: 600px;height: 350px;top:10px;float: right" id="vaccinationsMain02"></div>
+    <table  bgcolor="#F1F8F4" width="150px" >
+      <thead>
+      <tr>
+        <th style="text-align: center">
+          全球累计接种
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td id="worldVac" style="font-weight: bolder;color: #178B50;text-align: center">12356</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <table  bgcolor="#F1F8F4" width="150px" >
+      <thead>
+      <tr>
+        <th style="text-align: center">
+          中国累计接种
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td id="chinaVac" style="font-weight: bolder;color: #178B50;text-align: center">200</td>
+      </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+
+      var ChinaTotal_vaccinations;
+      var ChinaTotal_vaccinations_per_hundred;
+      var WorldTotal_vaccinations ;
+      var WorldTotal_vaccinations_per_hundred;
+      function getData(){
+        $.ajax({
+          type:'get',
+          url:'https://api.inews.qq.com/newsqa/v1/automation/modules/list?modules=VaccineTopData',
+          data:{
+            modules:'VaccineTopData'
+          },
+          dataType:'json',
+          success:function(res){
+            ChinaTotal_vaccinations = res.data.VaccineTopData.中国.total_vaccinations;
+            ChinaTotal_vaccinations_per_hundred=res.data.VaccineTopData.中国.total_vaccinations_per_hundred;
+            WorldTotal_vaccinations = res.data.VaccineTopData.全球.total_vaccinations;
+            WorldTotal_vaccinations_per_hundred=res.data.VaccineTopData.全球.total_vaccinations_per_hundred;
+            // console.log(ChinaTotal_vaccinations);
+            // console.log(ChinaTotal_vaccinations_per_hundred);
+            // console.log(WorldTotal_vaccinations);
+            // console.log(WorldTotal_vaccinations_per_hundred);
+            $("#worldVac").html(WorldTotal_vaccinations+"剂次");
+            $("#chinaVac").html(ChinaTotal_vaccinations+"剂次");
+            leftDetail(ChinaTotal_vaccinations,WorldTotal_vaccinations);
+            rightDetail(ChinaTotal_vaccinations_per_hundred,WorldTotal_vaccinations_per_hundred);
+          }
+        });
+      }
+      getData();
+      function leftDetail(china,world) {
+        var charDom = document.getElementById('vaccinationsMain01');
+        var myChart = echarts.init(charDom);
+        option = {
+          title: {
+            text: '全球疫苗接种信息',
+            //subtext: 'by Krystal',
+            left: 'center'
+          },
+          tooltip: {
+            trigger: 'item',
+            formatter:'{b}：{c}剂'
+          },
+          legend: {
+            orient: 'vertical',
+            left: 'left',
+          },
+          series: [
+            {
+              name: '',
+              type: 'pie',
+              radius: '50%',
+              data: [
+                {value: china, name: '中国接种'},
+                {value: world-china, name: '海外接种'}
+              ],
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              }
+            }
+          ]
+        };
+        myChart.setOption(option);
+      }
+    </script>
+  </div>
+  <div id="bool" style="background-color:#F0F8FF;clear:both;text-align:center;">
+      数据可视化小组作业：郑嘉骏、李晓、黄喆誉
+  </div>
+</body>
+<script type="text/javascript">
+let divobj1=document.getElementById("btn1");
+divobj1.onclick=function()
+{
+  window.location.href ="https://roundedorange.top/DataVisualization/1/";
+}
+let divobj2=document.getElementById("btn2");
+divobj2.onclick=function()
+{
+  window.location.href="https://roundedorange.top/DataVisualization/2/";
+}
+</script>
+</html>
