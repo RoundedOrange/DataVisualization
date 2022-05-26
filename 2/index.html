@@ -25,7 +25,6 @@
   <div  style="background-color:#FFFFFF;height:700px;float:left;">    
   <!-- gadget2 -->
   <div class="center col-lg-12" style="width: 1300px;height:500px;position:relative;">
-    <div style="left: 0"><span style="color: black;font-weight: bolder;font-size: 30px;">疫苗接种信息</span></div>
 
     <div style="width: 500px;height: 350px;top:10px;float: left" id="vaccinationsMain01" ></div>
 
@@ -127,6 +126,111 @@
           ]
         };
         myChart.setOption(option);
+      }
+
+      function rightDetail(chinaPercent,worldPercent) {
+        var chartDom1 = document.getElementById('vaccinationsMain02');
+        var myChart1 = echarts.init(chartDom1);
+        var option;
+  var spirit = 'path://roundedorange.top/DataVisualization/2/favorite.svg'
+        
+        var maxData = 400;
+
+        option = {
+          title:{
+            text:'每百人接种率',
+            left:'center'
+          },
+          tooltip: {
+            formatter:'{b}每百人接种率: {c}%'
+          },
+          xAxis: {
+            max: maxData,
+            splitLine: {show: false},
+            offset: 10,
+            axisLine: {
+              lineStyle: {
+                color: '#999'
+              }
+            },
+            axisLabel: {
+              margin: 10
+            }
+          },
+          yAxis: {
+            data: ['中国', '全球'],
+            inverse: true,
+            axisTick: {show: false},
+            axisLine: {show: false},
+            axisLabel: {
+              margin: 10,
+              color: '#999',
+              fontSize: 16
+            }
+          },
+          grid: {
+            top: 'center',
+            height: 200,
+            left: 70,
+            right: 100
+          },
+          series: [{
+            // current data
+            type: 'pictorialBar',
+            symbol: spirit,
+            symbolRepeat: 'fixed',
+            symbolMargin: '5%',
+            symbolClip: true,
+            symbolSize: 30,
+            symbolBoundingData: maxData,
+            data: [chinaPercent,worldPercent],
+            markLine: {
+              symbol: 'none',
+              label: {
+                formatter: 'max: {c}%',
+                position: 'start'
+              },
+              lineStyle: {
+                color: 'green',
+                type: 'dotted',
+                opacity: 0.2,
+                width: 2
+              },
+              data: [{
+                type: 'max'
+              }]
+            },
+            z: 10
+          }, {
+            // full data
+            type: 'pictorialBar',
+            itemStyle: {
+              normal: {
+                opacity: 0.2
+              }
+            },
+            label: {
+              show: true,
+              formatter: function (params) {
+                return params.value + ' %';
+              },
+              position: 'right',
+              offset: [10, 0],
+              color: 'green',
+              fontSize: 18
+            },
+            animationDuration: 0,
+            symbolRepeat: 'fixed',
+            symbolMargin: '5%',
+            symbol: spirit,
+            symbolSize: 30,
+            symbolBoundingData: maxData,
+            data: [chinaPercent, worldPercent],
+            z: 5
+          }]
+        };
+
+        option && myChart1.setOption(option);
       }
     </script>
   </div>
