@@ -2,26 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>死亡人数排名</title>
-<!-- gadget4 -->
-<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
-<script src="../js/jquery.min.js"></script>
+<title>上海疫情图</title>
+<!-- gadget5 -->
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/chalk.js"></script>
 <link rel="stylesheet" href="../css/time.css">
-<style media="screen">
-    /* Add space between Vega-Embed links  */
-    .vega-actions a {
-    margin-right: 5px;
-    }
-</style>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
 </head>
 <body>
   <!--导航条-->
   <div id="hname" style="background-color:#666FFF;">
-    <div id="title"><span class="time"></span></div>
+    <div id="title"><span class="otherTime"></span></div>
     <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
       <button type="button" class="btn btn-success" id="btn2">疫苗接种信息</button>
@@ -31,11 +23,14 @@
     </div>
   </div>
       <div  style="background-color:#FFFFFF;height:700px;float:left;">    
-        <!-- gadget4 -->
-        <div id="vis"></div>
-        <script src="../gadget4/js/data.js"></script>
-      </div>
-      <!--Footer-->
+        <!-- gadget5 -->
+            <div id="1919f6b9d7fa40ada2052ea08a5e297e" class="chart-container" style="float:left;width:1400px; height:350px;"></div>
+            <script src="../gadget5/js/test3.js"></script>
+            <div id="c31d6868f3264be6af839bdb12e9b380" class="chart-container" style="float:left;width:700px; height:400px;"></div>
+            <script src="../gadget5/js/test2.js"></script>
+            <div id="f4e8da5b89a84ed28b812485dbe3b656" class="chart-container" style="float:left;width:700px; height:400px;"></div>
+            <script src="../gadget5/js/test1.js"></script>
+        <!--Footer-->
       <footer class="navbar-fixed-bottom">
         <div class="container" style="background-color:#F0F8FF;clear:both;text-align:center;">
           <h4>数据可视化小组作业：郑嘉骏、李晓、黄喆誉</h4>

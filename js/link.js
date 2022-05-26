@@ -18,3 +18,8 @@ let divobj1=document.getElementById("btn1");
   {
     window.location.href="https://roundedorange.top/DataVisualization/4/";
   }
+  let divobj5=document.getElementById("btn5");
+  divobj5.onclick=function()
+  {
+    window.location.href="https://roundedorange.top/DataVisualization/5/";
+  }
