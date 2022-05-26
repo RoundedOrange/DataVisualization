@@ -3,27 +3,33 @@
 <head>
 <meta charset="utf-8">
 <title>Demo</title>
-<!-- gadget1 -->
-<script src="../gadget1/js/echarts.min.js"></script>
-<script src="../gadget1/js/jquery.min.js"></script>	
-<link rel="stylesheet" href="../gadget1/css/world01.css">
+<!-- gadget3 -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+<style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+    margin-right: 5px;
+    }
+</style>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
 </head>
 <body>
-  <!--导航条-->
-  <div id="hname" style="background-color:#666FFF;">
-    <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
-      <button type="button" class="btn btn-success" id="btn2">疫苗接种信息</button>
-      <button type="button" class="btn btn-warning" id="btn3">死亡人数排名</button>
-      <button type="button" class="btn btn-success">（成功）Success</button>
+    <!--导航条-->
+    <div id="hname" style="background-color:#666FFF;">
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-info" id="btn1">玫瑰图</button>
+        <button type="button" class="btn btn-success" id="btn2">疫苗接种信息</button>
+        <button type="button" class="btn btn-warning" id="btn3">死亡人数排名</button>
+        <button type="button" class="btn btn-success">（成功）Success</button>
+      </div>
     </div>
-  </div>
       <div  style="background-color:#FFFFFF;height:700px;float:left;">    
-        <!-- gadget1 -->
-        <div id="left2" ></div>
-        <script src="../gadget1/js/world01.js"></script>
+        <!-- gadget3 -->
+        <div id="vis"></div>
+
       </div>
       <div id="bool" style="background-color:#F0F8FF;clear:both;text-align:center;">
         数据可视化小组作业：郑嘉骏、李晓、黄喆誉
@@ -45,5 +51,5 @@
   {
     window.location.href="https://roundedorange.top/DataVisualization/3/";
   }
-</script>
+  </script>
 </html>
