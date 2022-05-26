@@ -23,3 +23,8 @@ let divobj1=document.getElementById("btn1");
   {
     window.location.href="https://roundedorange.top/DataVisualization/5/";
   }
+  let divobj6=document.getElementById("btn6");
+  divobj6.onclick=function()
+  {
+    window.location.href="https://roundedorange.top/DataVisualization/6/";
+  }
