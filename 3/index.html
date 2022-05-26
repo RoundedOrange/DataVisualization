@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>3</title>
 <!-- gadget1 -->
-<script src="../gadget1/js/echarts.min.js"></script>
-<script src="../gadget1/js/jquery.min.js"></script>	
+<script src="../js/echarts.min.js"></script>
+<script src="../js/jquery.min.js"></script>	
 <link rel="stylesheet" href="../gadget1/css/world01.css">
 <link rel="stylesheet" href="../css/time.css">
 <!-- Bootstrap -->
@@ -31,43 +31,6 @@
         数据可视化小组作业：郑嘉骏、李晓、黄喆誉
       </div>
 </body>
-<script type="text/javascript">
-  let divobj1=document.getElementById("btn1");
-  divobj1.onclick=function()
-  {
-    window.location.href ="https://roundedorange.top/DataVisualization/1/";
-  }
-  let divobj2=document.getElementById("btn2");
-  divobj2.onclick=function()
-  {
-    window.location.href="https://roundedorange.top/DataVisualization/2/";
-  }
-  let divobj3=document.getElementById("btn3");
-  divobj3.onclick=function()
-  {
-    window.location.href="https://roundedorange.top/DataVisualization/3/";
-  }
-  let divobj4=document.getElementById("btn4");
-  divobj4.onclick=function()
-  {
-    window.location.href="https://roundedorange.top/DataVisualization/4/";
-  }
-</script>
-<script type="text/javascript">
-   function showTime(){
-	var time = new Date();
-	var year = time.getFullYear();
-	var month = (time.getMonth()+1+'').padStart(2,'0');
-	var day = (time.getDate()+'').padStart(2,'0');
-	var hour = (time.getHours()+'').padStart(2,'0');
-	var minute = (time.getMinutes()+'').padStart(2,'0');
-	var second = (time.getSeconds()+'').padStart(2,'0');
-	
-	var content = `${year}年${month}月${day}日${hour}:${minute}:${second}`;
-	$('#title .time').text(content);
-}
-
-showTime();
-setInterval(showTime,1000);      //每秒运行一次
-</script>
+<script type="text/javascript" src="../js/link.js"></script>
+<script type="text/javascript" src="../js/time.js"></script>
 </html>
