@@ -1,6 +1,6 @@
 var vlSpec = {
-    "height":300,
-    "width":300,
+    "height":600,
+    "width":1000,
         "config": {
           "view": {"continuousWidth": 400, "continuousHeight": 300},
           "axis": {"labelFontSize": 15, "titleFontSize": 18},
