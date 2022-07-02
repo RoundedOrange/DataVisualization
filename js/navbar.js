@@ -7,5 +7,6 @@
       <button type="button" class="btn btn-success" id="btn4">死亡人数排名</button>
       <button type="button" class="btn btn-info" id="btn5">上海疫情图</button>
       <button type="button" class="btn btn-warning" id="btn6">上海疫情城市建模</button>
+      <button type="button" class="btn btn-success" id="btn6">上海无症状感染人数</button>
     </div>
   </div>
