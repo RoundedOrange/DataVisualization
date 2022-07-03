@@ -1,22 +1,17 @@
 function getData(){
-	$.ajax({  //全球各国数据获取，存入data传入函数
+	$.ajax({
 		type:'post',
 		url:'https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist',
 		
 		dataType:'json',
 		success:function(res){
-			//console.log(res);
 			var data = res.data;
-			
-
             var countries = data;
-            var count=0;          //计数，取前20个国家
-             //存储前20个国家的数据（name，confirm，dead）
+            var count=0;
             var countryName = [];      
             var countryConfirm = [];
             var countryDead = [];
             for(var country of countries){
-                //console.log(country);
                 if(count==20){
                     break;
                 }else{
@@ -26,19 +21,14 @@ function getData(){
                 count++
             }
             }
-        //    console.log(countryName[5]);
-        //    console.log(countryConfirm[5]);
-        //    console.log(countryDead[5]);
              getNightingaleRose(countryName,countryConfirm,countryDead);
            
 		}
 	});
 }
-getData();                      //执行数据获取
-setInterval(getData,1000);   //每1s查询获取一次数据
-
-
-function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁格尔玫瑰图
+getData();
+setInterval(getData,1000);
+function getNightingaleRose(countryName,countryConfirm,countryDead){ 
     var myChart = echarts.init(document.getElementById('left2'),'white');
     var legenddata = [
         {name:countryName[0],Confirmed:countryConfirm[0],Dead:countryDead[0]},
@@ -66,7 +56,6 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
         option = {
          dataset: {
             source: [
-               
                 ['Country','Confirmed','SQRT','Dead'],
                 [countryName[0],countryConfirm[0],Math.sqrt(countryConfirm[0]),countryDead[0]],
                 [countryName[1],countryConfirm[1],Math.sqrt(countryConfirm[1]),countryDead[1]],
@@ -99,13 +88,11 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
                     show: true,
                     type: ['pie', 'funnel']
                 },
-                //restore: {show: true},
                 saveAsImage: {show: true}
             }
         },
             title: {
                 text: '全球疫情前二十玫瑰图',
-                //subtext: '\n\t\t\t\t\t\t使用秀秀的数据\n\n——by Krystal1',
                 x: '50%',
                 y: '50',
                 textStyle:{
@@ -121,12 +108,12 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
                 }
             },
             legend: {
-                x: 'right',//水平位置，【left\center\right\数字】
-                y: '150',//垂直位置，【top\center\bottom\数字】
-                align:'left',//字在图例的左边或右边【left/right】
-                orient:'vertical',//图例方向【horizontal/vertical】
-                icon: "circle",   //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
-                textStyle://图例文字
+                x: 'right',
+                y: '150',
+                align:'left',
+                orient:'vertical',
+                icon: "circle", 
+                textStyle:
                 {
                     fontFamily:'微软雅黑',
                     color:'#000',
@@ -134,7 +121,6 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
                 },
                 data: countryName,
                 formatter: function(params)  {
-                    //console.log('图例参数',params) 
                     for (var i=0;i<legenddata.length;i++){
                           if (legenddata[i].name== params){
                               return params+"\t确诊:"+legenddata[i].Confirmed+"\t死亡:"+legenddata[i].Dead;
@@ -151,7 +137,7 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
                     clockWise: false ,
                     radius: [20, 400],
                     center: ['35%', '65%'],
-                    roseType: 'area',               //*********************指定南丁格尔玫瑰图********************************* */
+                    roseType: 'area',
                     encode: {
                     itemName: 'Country',
                     value: 'SQRT'
@@ -176,7 +162,7 @@ function getNightingaleRose(countryName,countryConfirm,countryDead){  //南丁�
                                 },
                                 formatter:'{b} \n{@Confirmed}例 \n死亡{@Dead}',//注意这里大小写敏感哦
                                 formatter : function(params) 
-                                {  //console.log('参数列表',params) 
+                                {
                                     if(params.data[1]>3000000)
                                     {return params.data[0]+'\n'+params.data[1]+"例"+'\n'+"死亡"+params.data[3]+"例";}
                                     else{return "";}

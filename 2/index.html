@@ -3,15 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>疫苗接种信息</title>
-<!-- gadget2 -->
 <script src="../js/echarts.min.js"></script>
 <script src="../js/jquery.min.js"></script>
 <link rel="stylesheet" href="../css/time.css">
-<!-- Bootstrap -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
 </head>
 <body>
-  <!--导航条-->
   <div id="hname header" style="background-color:#666FFF;">
     <div id="title"><span class="time"></span></div>
     <div class="btn-group" role="group" aria-label="...">
@@ -25,7 +22,6 @@
     </div>
 </div>
   <div  style="background-color:#FFFFFF;height:700px;float:left;">    
-  <!-- gadget2 -->
   <div class="center col-lg-12" style="width: 1300px;height:500px;position:relative;">
     <div style="width: 1100px;height: 400px;float: left" id="vaccinationsMain01" ></div>
     <table  bgcolor="#F1F8F4" width="150px" >
@@ -58,8 +54,6 @@
       </tbody>
     </table>
     <div style="width: 1400px;height: 350px;top:10px;float: left" id="vaccinationsMain02"></div>
-    
-
     <script type="text/javascript">
 
       var ChinaTotal_vaccinations;
@@ -79,10 +73,6 @@
             ChinaTotal_vaccinations_per_hundred=res.data.VaccineTopData.中国.total_vaccinations_per_hundred;
             WorldTotal_vaccinations = res.data.VaccineTopData.全球.total_vaccinations;
             WorldTotal_vaccinations_per_hundred=res.data.VaccineTopData.全球.total_vaccinations_per_hundred;
-            // console.log(ChinaTotal_vaccinations);
-            // console.log(ChinaTotal_vaccinations_per_hundred);
-            // console.log(WorldTotal_vaccinations);
-            // console.log(WorldTotal_vaccinations_per_hundred);
             $("#worldVac").html(WorldTotal_vaccinations+"剂次");
             $("#chinaVac").html(ChinaTotal_vaccinations+"剂次");
             leftDetail(ChinaTotal_vaccinations,WorldTotal_vaccinations);
@@ -97,7 +87,6 @@
         option = {
           title: {
             text: '全球疫苗接种信息',
-            //subtext: 'by Krystal',
             left: 'center'
           },
           tooltip: {
@@ -177,7 +166,6 @@ var spirit = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAACUCAYA
             right: 100
           },
           series: [{
-            // current data
             type: 'pictorialBar',
             symbol: spirit,
             symbolRepeat: 'fixed',
@@ -204,7 +192,6 @@ var spirit = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAACUCAYA
             },
             z: 10
           }, {
-            // full data
             type: 'pictorialBar',
             itemStyle: {
               normal: {
@@ -236,7 +223,6 @@ var spirit = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAACUCAYA
       }
     </script>
   </div>
-  <!--Footer-->
   <footer class="navbar-fixed-bottom">
     <div class="container" style="background-color:#F0F8FF;clear:both;text-align:center;">
       <h4>数据可视化小组作业：郑嘉骏、李晓、黄喆誉</h4>
