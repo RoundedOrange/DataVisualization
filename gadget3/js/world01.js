@@ -22,7 +22,6 @@ function getData(){
                 count++
             }
             }
-             getNightingaleRose(countryName,countryConfirm,countryDead);
            
 		}
 	});
