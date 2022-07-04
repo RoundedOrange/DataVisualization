@@ -3,6 +3,7 @@ function getData(){
 	$.ajax({
 		type:'post',
 		url:'https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist',
+		
 		dataType:'json',
 		success:function(res){
 			var data = res.data;
@@ -22,7 +23,6 @@ function getData(){
                 count++
             }
             }
-           
 		}
 	});
 }
